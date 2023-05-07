@@ -1,17 +1,17 @@
 # boilerplate-nodejsgit status
 
 
-# Arquivos de ambiente
-.env
+projeto
+├── config
+│   └── database.js
+├── controllers
+│   └── userController.js
+├── middlewares
+│   └── authMiddleware.js
+├── models
+│   └── user.js
+├── routes
+│   └── userRoutes.js
+├── app.js
+└── server.js
 
-# Dependências geradas pelo npm
-node_modules/
-
-# Arquivos de log do npm
-npm-debug.log*
-
-# Arquivos gerados pelo Visual Studio Code
-.vscode/
-
-# Dependências geradas pelo Yarn
-yarn.lock
