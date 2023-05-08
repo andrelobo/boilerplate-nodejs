@@ -11,28 +11,11 @@ exports.signup = async (req, res, next) => {
     const user = await User.create({ name, email, password: hashedPassword });
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     
-    const nodemailer = require('nodemailer');
-
-    const transporter = nodemailer.createTransport({
-      service: process.env.EMAIL_SERVICE,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
-
-    await transporter.sendMail({
-      from: 'My App <noreply@myapp.com>',
-      to: user.email,
-      subject: 'Welcome to My App!',
-      html: `<h1>Welcome, ${user.name}!</h1><p>You have successfully signed up to My App.</p>`,
-    });
-
     res.status(201).json({ user, token });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error });
-  }
+    res.status(500).json({ error })
+  };
 };
 
 

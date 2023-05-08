@@ -5,15 +5,15 @@ const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
-// middlewares
+// Middlewares
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
-// routes
+// Routes
 app.use('/users', userRoutes);
 
-// error handler middleware
+// Error handler middleware
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({ error: 'Internal server error' });
