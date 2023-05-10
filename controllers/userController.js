@@ -36,7 +36,7 @@ async function sendWelcomeEmail(email, name) {
     secure: true, // use SSL
     auth: {
       user: 'xonga73@gmail.com',
-      pass: 'Democracia70x07@'
+      pass: '####'
     }
   });
 
